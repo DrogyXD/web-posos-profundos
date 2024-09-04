@@ -9,8 +9,8 @@
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
 }
 
 .gallery-item {
@@ -31,59 +31,120 @@
     transform: scale(1.1);
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-}
-
 .main-image {
     grid-column: span 2;
     grid-row: span 2;
 }
 
-.view-more-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+/* Ajusta la distribución en pantallas más pequeñas */
+@media (max-width: 767px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .main-image {
+        grid-column: 1 / -1;
+        /* Ocupa todo el ancho */
+    }
+
+    .small-image:nth-child(2),
+    .small-image:nth-child(3) {
+        grid-column: span 1;
+    }
+
+    .small-image:nth-child(4),
+    .view-more {
+        grid-column: span 1;
+    }
+}
+
+/* Ajustes para el modal */
+.modal-dialog {
+    max-width: 90%;
+    /* Asegúrate de que el modal no ocupe más del 90% del ancho de la pantalla */
+    margin: 0 auto;
+    /* Centra el modal en la pantalla */
+}
+
+.modal-body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    flex-direction: column;
+    padding: 0;
 }
 
-.view-more:hover .view-more-overlay {
-    opacity: 1;
-}
-
-.plus-icon {
-    font-size: 3rem;
-}
-
-/* Estilos para el carrusel de miniaturas */
-#carouselThumbnails .carousel-inner .row {
+/* Contenedor para la imagen y el texto */
+.modal-body-content {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    width: 100%;
 }
 
-#carouselThumbnails .carousel-inner .col-2 {
-    padding: 0 5px;
+/* Para pantallas grandes */
+.modal-image {
+    flex: 1;
+    margin-right: 20px;
 }
 
-#carouselThumbnails .carousel-inner img {
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+.modal-description {
+    flex: 1;
+    padding: 0 20px;
+    /* Añade padding lateral para el texto */
 }
 
-#carouselThumbnails .carousel-inner img:hover {
-    transform: scale(1.1);
+.modal-description h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
+.modal-description p {
+    text-align: justify;
+    margin: 0 0 15px 0;
+    /* Añade margen inferior al texto para separar del borde del modal */
+    font-size: 1rem;
+}
+
+/* Aumenta el tamaño de la imagen dentro del modal */
+.modal-image img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 767px) {
+    .modal-body-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .modal-description {
+        padding: 0 15px;
+        /* Añade padding lateral en pantallas pequeñas */
+    }
+
+    .modal-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .modal-description h4 {
+        font-size: 1.2rem;
+    }
+
+    .modal-description p {
+        font-size: 1.2rem;
+        text-align: justify;
+        margin-bottom: 15px;
+        /* Asegúrate de que también haya margen inferior en pantallas pequeñas */
+    }
+}

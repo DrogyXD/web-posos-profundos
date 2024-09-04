@@ -10,6 +10,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
 .navbar-logo {
@@ -21,9 +23,7 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-    /* Quita la línea de hipervínculo */
     color: inherit;
-    /* Mantiene el color del texto */
 }
 
 .logo {
@@ -37,8 +37,12 @@ header {
     color: #333;
 }
 
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
 .navbar-links a {
-    margin-left: 20px;
     text-decoration: none;
     color: #333;
     font-size: 1em;
@@ -46,4 +50,23 @@ header {
 
 .navbar-links a:hover {
     color: #007BFF;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    .navbar-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar-links a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-links a:last-child {
+        margin-bottom: 0;
+    }
 }

@@ -3,24 +3,43 @@
         <h2 class="text-center mb-5">Galería</h2>
         <div class="gallery-grid">
             <!-- Main Image -->
-            <div class="gallery-item main-image">
+            <div class="gallery-item main-image"
+                (click)="openModal('assets/images/W.webp', 'Chamba 1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolor pariatur commodi, ab inventore accusamus? Quaerat, eaque quibusdam eius facere distinctio ea debitis fuga fugit. Totam veniam sit ducimus hic!')">
                 <img src="assets/images/W.webp" loading="lazy" class="img-fluid rounded" alt="Galería 1">
             </div>
 
-            <!-- Smaller Images -->
-            <div class="gallery-item small-image">
+            <div class="gallery-item small-image"
+                (click)="openModal('assets/images/R.jpeg', 'Chamba 2', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi eos ipsum sint quidem alias corrupti architecto rerum, ea veritatis, esse nobis rem expedita adipisci odio. Nihil eligendi aut aperiam unde.')">
                 <img src="assets/images/R.jpeg" loading="lazy" class="img-fluid rounded" alt="Galería 2">
             </div>
-            <div class="gallery-item small-image">
+            <div class="gallery-item small-image"
+                (click)="openModal('assets/images/Q.webp', 'Chamba 3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta nihil incidunt commodi quod esse optio provident adipisci tempore tenetur! Temporibus, deleniti excepturi? Cumque voluptatem atque eaque ut aliquam, necessitatibus nemo.')">
                 <img src="assets/images/Q.webp" loading="lazy" class="img-fluid rounded" alt="Galería 3">
             </div>
-            <div class="gallery-item small-image">
+            <div class="gallery-item small-image"
+                (click)="openModal('assets/images/S.webp', 'Chamba 4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio numquam odio pariatur et ducimus corporis obcaecati eveniet. Autem saepe est quibusdam laborum. Fuga maxime aliquid distinctio possimus facere voluptatem quos.')">
                 <img src="assets/images/S.webp" loading="lazy" class="img-fluid rounded" alt="Galería 4">
             </div>
+            <div class="gallery-item small-image"
+                (click)="openModal('assets/images/logo3.jpeg', 'Chamba 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat harum facere reprehenderit maxime, commodi accusantium magni provident, fugiat quisquam veritatis voluptatibus inventore vero omnis obcaecati dolores. Dolor, repellendus saepe. Provident!')">
+                <img src="assets/images/logo3.jpeg" loading="lazy" class="img-fluid rounded" alt="Galería 5">
+            </div>
+        </div>
+    </div>
 
-            <!-- Image with + Icon -->
-            <div class="gallery-item view-more">
-                <img src="assets/images/A.jpg" loading="lazy" class="img-fluid rounded" alt="Galería 5">
+    <!-- Modal de Bootstrap -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body d-flex flex-column flex-md-row">
+                    <div class="modal-image">
+                        <img [src]="selectedImage" class="img-fluid rounded modal-img" alt="Imagen seleccionada">
+                    </div>
+                    <div class="modal-description">
+                        <h4 class="modal-title mb-3">{{selectedTitle}}</h4> <!-- Título añadido -->
+                        <p>{{selectedDescription}}</p> <!-- Descripción de la imagen -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

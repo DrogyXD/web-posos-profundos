@@ -5,8 +5,22 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './galeria.component.html',
-  styleUrl: './galeria.component.css'
+  styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent {
+  selectedImage: string = '';
+  selectedTitle: string = '';
+  selectedDescription: string = '';
 
+  openModal(imageUrl: string, title: string, description: string) {
+    this.selectedImage = imageUrl;
+    this.selectedTitle = title;
+    this.selectedDescription = description;
+    // Abre el modal
+    const modalElement = document.getElementById('imageModal');
+    if (modalElement) {
+      const modal = new (window as any).bootstrap.Modal(modalElement);
+      modal.show();
+    }
+  }
 }

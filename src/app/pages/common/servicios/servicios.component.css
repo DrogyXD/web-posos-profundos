@@ -1,7 +1,6 @@
 /* src/app/pages/home/home.component.css */
 :host {
     display: block;
-    margin-bottom: 20px;
 }
 
 .service-grid {
