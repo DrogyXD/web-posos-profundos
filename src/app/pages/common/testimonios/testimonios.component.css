@@ -1,0 +1,6 @@
+/* src/app/components/servicios/servicios.component.css */
+:host {
+    display: block;
+    margin-bottom: 20px;
+    /* Ajusta el valor según la separación deseada */
+}

@@ -1,0 +1,27 @@
+/* Asegura que la imagen cubra todo el ancho del carrusel y ajuste la altura máxima */
+.carousel-inner img {
+    width: 100%;
+    /* Asegura que la imagen cubra todo el ancho del carrusel */
+    max-height: 700px;
+    /* Cambia a 700px si prefieres una altura mayor */
+    /* Define la altura máxima de la imagen */
+    object-fit: cover;
+    /* Cubre todo el contenedor sin mantener la proporción exacta, puede cortar parte de la imagen */
+    /* Para mantener la proporción sin recortar, usa 'contain' en lugar de 'cover' */
+    object-position: center;
+    /* Centra la imagen dentro del contenedor */
+}
+
+/* Ajusta el estilo de las leyendas del carrusel si es necesario */
+.carousel-caption {
+    color: whitesmoke;
+    /* Fondo semi-transparente para legibilidad */
+    padding: 10px;
+}
+
+/* Opcional: Ajusta el contenedor del carrusel en el host */
+:host {
+    display: block;
+    margin-bottom: 20px;
+    /* Ajusta el valor según la separación deseada */
+}

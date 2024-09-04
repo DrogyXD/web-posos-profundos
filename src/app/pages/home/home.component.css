@@ -1,0 +1,10 @@
+/* src/app/pages/home/home.component.css */
+app-carousel,
+app-bienvenida,
+app-servicios,
+app-testimonios,
+app-galeria,
+app-cta {
+    margin-bottom: 20px;
+    /* Ajusta el valor según la separación deseada */
+}

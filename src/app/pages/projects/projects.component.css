@@ -1,0 +1,14 @@
+/* src/app/pages/projects/projects.component.css */
+section {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #333;
+}
