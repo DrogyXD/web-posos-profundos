@@ -1,14 +1,21 @@
-<!-- src/app/components/header/header.component.html -->
 <header>
     <nav class="navbar">
         <div class="navbar-logo">
             <a href="/home">
-            <!-- Usa la ruta desde la carpeta de assets -->
-            <img src="assets/images/logo.webp" alt="Logo de la Empresa" class="logo" width="50" height="50">
-            <span class="company-name">Pozos Profundos S.A.</span>
+                <!-- Usa la ruta desde la carpeta de assets -->
+                <img src="assets/images/logo.webp" alt="Logo de la Empresa" class="logo" width="50" height="50">
+                <span class="company-name">Pozos Profundos S.A.</span>
             </a>
         </div>
-        <div class="navbar-links">
+
+        <!-- Botón toggle para dispositivos móviles -->
+        <button class="navbar-toggle" type="button" (click)="toggleMenu()">
+            <span class="navbar-toggle-icon"></span>
+            <span class="navbar-toggle-icon"></span>
+            <span class="navbar-toggle-icon"></span>
+        </button>
+
+        <div class="navbar-links" [ngClass]="{ 'active': isMenuOpen }">
             <a href="/home">Inicio</a>
             <a routerLink="/about">Sobre Nosotros</a>
             <a routerLink="/services">Servicios</a>
