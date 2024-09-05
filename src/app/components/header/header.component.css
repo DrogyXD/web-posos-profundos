@@ -52,11 +52,23 @@ header {
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
+    .navbar {
+        justify-content: center;
+        /* Centrar todo el contenido de la barra de navegación */
+    }
+
+    .navbar-logo {
+        margin-bottom: 10px;
+        /* Añadir espacio para evitar que el logo y el toggle se junten */
+    }
+
     .navbar-links {
         display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 10px;
+        align-items: center;
+        /* Centra los enlaces */
     }
 
     .navbar-links.active {
@@ -70,6 +82,8 @@ header {
         border: none;
         background: none;
         cursor: pointer;
+        margin: 0 auto;
+        /* Centra el botón toggle */
     }
 
     .navbar-toggle-icon {
