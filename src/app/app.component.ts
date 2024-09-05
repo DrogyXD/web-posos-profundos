@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -12,6 +12,10 @@ import { CarouselComponent } from './pages/common/carousel/carousel.component';
 import { CTAComponent } from './pages/common/cta/cta.component';
 import { GaleriaComponent } from './pages/common/galeria/galeria.component';
 import { TestimoniosComponent } from './pages/common/testimonios/testimonios.component';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +23,10 @@ import { TestimoniosComponent } from './pages/common/testimonios/testimonios.com
   imports: [
     RouterOutlet,
     CommonModule,
-    RouterOutlet,
     RouterLink,
     HeaderComponent,
+    FormsModule,
+    RouterModule,
     FooterComponent,
     AboutComponent,
     ServicesComponent,
@@ -31,7 +36,10 @@ import { TestimoniosComponent } from './pages/common/testimonios/testimonios.com
     CarouselComponent,
     CTAComponent,
     GaleriaComponent,
-    TestimoniosComponent
+    TestimoniosComponent,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

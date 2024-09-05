@@ -5,3 +5,100 @@
     <p>Aquí se presentarán algunos de nuestros proyectos destacados.</p>
     <!-- Puedes agregar aquí una lista de proyectos o una galería -->
 </section>
+
+<div class="d-flex">
+    <div class="content p-4">
+        <h1>Inventario</h1>
+        <div class="container my-5">
+            <h3 class="mb-4">Gestión de inventario</h3>
+            <!-- Barra de búsqueda -->
+            <div class="mb-4">
+                <!-- Agrega un manejo de eventos seguro para aplicar el filtro -->
+                <mat-form-field appearance="fill">
+                    <mat-label>Buscar productos</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre, categoría, etc.">
+                </mat-form-field>
+            </div>
+            <div *ngIf="showStockUpdateForm" class="my-4">
+                <h4>Actualizar Stock</h4>
+                <form (ngSubmit)="updateStock()">
+                    <div class="mb-3">
+                        <label for="productId" class="form-label">ID del Producto</label>
+                        <input type="text" class="form-control" id="productId" [value]="productIdToUpdate" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="stockQuantity" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="stockQuantity" [(ngModel)]="stockQuantity"
+                            name="cantidad" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar Stock</button>
+                    <button type="button" class="btn btn-secondary ms-2"
+                        (click)="closeStockUpdateForm()">Cancelar</button>
+                </form>
+            </div>
+            <!-- Table and paginator wrapper -->
+            <div class="table-responsive">
+                <!-- Botón para actualizar stock -->
+
+                <!-- Tabla para mostrar productos -->
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <!-- Columnas -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef>#</th>
+                        <td mat-cell *matCellDef="let element">{{element?._id}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef>Nombre del Producto</th>
+                        <td mat-cell *matCellDef="let element">{{element?.nombre}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="categoria">
+                        <th mat-header-cell *matHeaderCellDef>Categoría</th>
+                        <td mat-cell *matCellDef="let element">{{ element?.categoria?.nombre }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="precio">
+                        <th mat-header-cell *matHeaderCellDef>Precio</th>
+                        <td mat-cell *matCellDef="let element">$ {{element?.precio}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="descripcion">
+                        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+                        <td mat-cell *matCellDef="let element">{{element?.descripcion}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cantidad">
+                        <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+                        <td mat-cell *matCellDef="let element">{{element?.cantidad}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="imagen">
+                        <th mat-header-cell *matHeaderCellDef>Imagen</th>
+                        <td mat-cell *matCellDef="let element">
+                            <img [src]="element?.imagen" alt="{{element?.nombre}}" width="50" height="50">
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="acciones">
+                        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button class="btn btn-secondary btn-sm me-2" (click)="openStockUpdateForm(element._id)">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm me-2"
+                                (click)="editarProducto(element._id)">Editar</button>
+                            <button class="btn btn-danger btn-sm"
+                                (click)="eliminarProducto(element._id)">Eliminar</button>
+                        </td>
+                    </ng-container>
+                    <!-- Filas -->
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- Paginación -->
+                <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
