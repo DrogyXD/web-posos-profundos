@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      const whatsappNumber = '523339464045'; // Reemplaza con tu número de WhatsApp en formato internacional
+      const whatsappNumber = '523333847983'; // Reemplaza con tu número de WhatsApp en formato internacional
       const name = this.contactForm.get('name')?.value;
       const phone = this.contactForm.get('phone')?.value;
       const message = this.contactForm.get('message')?.value;

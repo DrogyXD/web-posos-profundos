@@ -2,11 +2,23 @@
 :host {
     display: block;
 }
-
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (min-width: 1200px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 .card {
@@ -14,7 +26,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para la imagen dentro de cada card-body */
 .service-image {
     width: 100%;
     height: auto;

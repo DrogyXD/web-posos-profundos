@@ -50,16 +50,25 @@ header {
     color: #007BFF;
 }
 
+/* Esconder el toggle en pantallas grandes */
+.navbar-toggle {
+    display: none;
+}
+
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
     .navbar {
-        justify-content: center;
-        /* Centrar todo el contenido de la barra de navegación */
+        justify-content: space-between;
+        /* Asegura que el toggle y el logo estén alineados a los lados */
+    }
+
+    .navbar span {
+        justify-content: space-between;
+        /* Asegura que el toggle y el logo estén alineados a los lados */
     }
 
     .navbar-logo {
         margin-bottom: 10px;
-        /* Añadir espacio para evitar que el logo y el toggle se junten */
     }
 
     .navbar-links {
@@ -68,7 +77,6 @@ header {
         width: 100%;
         margin-top: 10px;
         align-items: center;
-        /* Centra los enlaces */
     }
 
     .navbar-links.active {
@@ -82,13 +90,133 @@ header {
         border: none;
         background: none;
         cursor: pointer;
-        margin: 0 auto;
-        /* Centra el botón toggle */
+        margin-left: auto;
     }
 
     .navbar-toggle-icon {
         width: 25px;
         height: 3px;
+        background-color: #333;
+        margin: 3px 0;
+    }
+}
+
+header {
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 5vw;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Ajustar el tamaño de las fuentes dinámicamente */
+@media (max-width: 1024px) {
+    .company-name {
+        font-size: 1rem;
+    }
+
+    .navbar-toggle {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .company-name {
+        font-size: 0.9rem;
+    }
+
+    .navbar-toggle {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.navbar-links a:hover {
+    color: #007BFF;
+}
+
+/* Esconder el toggle en pantallas grandes */
+.navbar-toggle {
+    display: none;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .navbar-logo {
+        margin-bottom: 10px;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .navbar-toggle-icon {
+        width: 20px;
+        height: 2px;
         background-color: #333;
         margin: 3px 0;
     }
