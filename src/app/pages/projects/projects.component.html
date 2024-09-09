@@ -1,7 +1,25 @@
-<p>projects works!</p>
-<!-- src/app/pages/projects/projects.component.html -->
 <section>
-    <h1>Portafolio</h1>
-    <p>Aquí se presentarán algunos de nuestros proyectos destacados.</p>
-    <!-- Puedes agregar aquí una lista de proyectos o una galería -->
+    <!-- src/app/pages/projects/projects.component.html -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Precio Venta</th>
+                <th>Cantidad</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.categoria?.nombre }}</td>
+                <td>{{ producto.precioVenta }}</td>
+                <td>{{ producto.cantidad }}</td>
+                <td>
+                    <img [src]="producto.imagen" alt="{{ producto.nombre }}" width="100">
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>

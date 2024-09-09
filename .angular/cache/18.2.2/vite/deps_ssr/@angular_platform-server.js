@@ -4,10 +4,12 @@ import {
   BrowserModule,
   DomRendererFactory2,
   EVENT_MANAGER_PLUGINS,
-  EventManagerPlugin,
+  EventManagerPlugin
+} from "./chunk-64EACDGC.js";
+import {
   HTTP_ROOT_INTERCEPTOR_FNS,
   HttpClientModule
-} from "./chunk-W74HFLWK.js";
+} from "./chunk-KRKS5EBW.js";
 import {
   DOCUMENT,
   NullViewportScroller,
