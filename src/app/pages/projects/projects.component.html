@@ -1,5 +1,9 @@
 <section>
     <!-- src/app/pages/projects/projects.component.html -->
+    <div *ngIf="productos.length === 0">
+        <p>Cargando productos...</p>
+    </div>
+
     <table>
         <thead>
             <tr>
