@@ -1,6 +1,6 @@
 .carousel-inner img {
     width: 100%;
-    max-height: 500px;
+    max-height: 1000px;
     /* Disminuí el tamaño máximo de la imagen para mejorar tiempos de carga */
     object-fit: cover;
     /* Sigue cubriendo el contenedor, pero puedes cambiarlo a 'contain' si deseas mantener la proporción */
@@ -18,10 +18,4 @@
 :host {
     display: block;
     margin-bottom: 20px;
-}
-/* Opcional: Ajusta el contenedor del carrusel en el host */
-:host {
-    display: block;
-    margin-bottom: 20px;
-    /* Ajusta el valor según la separación deseada */
 }
